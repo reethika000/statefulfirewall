@@ -57,13 +57,14 @@ A connection is considered valid only when:
 
 ## Stateless Filter
 
+Only new TCP packets pass through this filter before being inserted into the connection table. Packets failing this condition are rejected without creating a state entry.
+
 The stateless filter is implemented as
 
 ```text
 (hash % 100) >= 10
 ```
 
-Only new TCP SYN packets pass through this filter before being inserted into the connection table. Packets failing this condition are rejected without creating a state entry.
 
 ---
 
